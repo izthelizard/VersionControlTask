@@ -8,16 +8,22 @@ void setup(){
 
 void draw(){
   background(0);
+
   //reversed the statement
-  for (int i = particles.size() - 1; i >= 0; i--){
-    Particle p= particles.get(i); 
-    particles.get(i).update();
-    particles.get(i).display();
+  for (int j = particles.size() - 1; j >= 0; j--){
+    Particle p= particles.get(j); 
+    particles.get(j).update();
+    particles.get(j).display();
 
 //added code to remove the particles when they fall off and made it effective
     if (p.isOffScreen()) {
-      particles.remove(i); 
+      particles.remove(j); 
     }
+
+  for (int j = 0; j < particles.size(); j++){
+    particles.get(j).update();
+    particles.get(j).display();
+
   }
   
   if(mousePressed == true) {
